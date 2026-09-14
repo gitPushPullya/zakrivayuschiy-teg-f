@@ -109,6 +109,7 @@
   font-size: 18px;
 }
 
+/* Переделать! */
 .card__like-button {
   display: inline-flex;
   align-items: center;
@@ -135,4 +136,22 @@
   white-space: nowrap;
   padding: 12.5px 37px;
   border: solid 2px currentColor;
+}
+
+.save__button {
+  cursor: pointer;
+  border: solid 2px currentColor;
+  display: grid;
+  grid-template-rows: 1fr 1fr;
+  align-items: center;
+  justify-items: center;
+  gap: 8px;
+  padding: 17px 20px;
+  margin: 0 auto 100px;
+}
+
+.save__button-text {
+  font-size: 14px;
+  font-family: var(--accent-font, sans-serif);
+  line-height: 90%;
 }
