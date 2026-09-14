@@ -13,4 +13,44 @@
 .page {
   min-inline-size: 320px;
   min-block-size: 100dvb;
+  font-family: var(--main-font, sans-serif);
+  font-variation-settings: 'wght' var(--text-font-weight, 400);
+  background-image: var(--page-gradient);
+  background-attachment: fixed;
+  background-size: cover;
+  min-height: 100vh;
+}
+
+.content {
+  inline-size: var(--content-width);
+  margin-inline: auto;
+}
+
+.header {
+  display: grid;
+  justify-items: center;
+  align-self: center;
+  justify-self: center;
+  padding:
+    clamp(122px, 1.2308vw + 112.7692px, 130px)   
+    clamp(16px, 16.3846vw - 106.8846px, 122.5px);
+  border: 2px solid currentColor;
+  background: #fff;
+  font-family: var(--accent-font, sans-serif);
+  margin: 100px 0;
+}
+
+.header__title {
+  justify-items: center;
+  align-self: center;
+  font-family: var(--accent-font, sans-serif);
+  font-size: clamp(49px, 2.4615vw + 30.5385px, 65px);
+  text-transform: uppercase;
+}
+
+.header__subtitle {
+  margin-block-start: 1.25rem;
+  font-family: var(--accent-font, sans-serif);
+  font-size: clamp(14px, 1.3846vw + 3.6154px, 23px);
+  text-transform: uppercase;
 }
