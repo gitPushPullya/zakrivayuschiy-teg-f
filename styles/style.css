@@ -155,3 +155,41 @@
   font-family: var(--accent-font, sans-serif);
   line-height: 90%;
 }
+
+.save__dialog[open] {
+  display: grid;
+  gap: 30px;
+  padding: 30px;
+  position: fixed;
+  max-inline-size: 353px;
+  border: solid 2px currentColor;
+}
+
+.save__dialog-message {
+  display: grid;
+  grid-template-columns: min-content 3fr;
+  align-items: center;
+  gap: 20px;
+}
+
+.save__dialog-text {
+  font-size: 14px;
+  font-family: var(--accent-font, sans-serif);
+  text-align: left;
+  max-width: 234px;
+}
+
+.save__dialog-button {
+  cursor: pointer;
+  border: solid 2px currentColor;
+  padding: 12.5px 0;
+  width: 100%;
+  font-size: 14px;
+  font-family: var(--accent-font, sans-serif);
+  text-transform: uppercase;
+  background-color: #fff;
+}
+
+.save__dialog[open]::backdrop {
+  background-color: rgba(0, 0, 0, 0.75);
+}
