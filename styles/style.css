@@ -124,13 +124,26 @@
 
 .like-icon {
   box-sizing: content-box;
-  width: 27px;
-  height: 24px;
-  fill: currentColor;
+  width: 39px;
+  height: 36px;
   flex-shrink: 0;
   padding: 7px 5.5px;
   border: 2px solid transparent;
   transition: border-color 0.3s ease;
+}
+
+.contour {
+  fill: var(--contour-fill);
+}
+
+.main-body, 
+.core {
+  fill: transparent;
+}
+
+.sparks {
+  fill: var(--animation-fill-color);
+  opacity: 0;
 }
 
 .button__text {
