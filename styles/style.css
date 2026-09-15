@@ -32,12 +32,12 @@
   align-self: center;
   justify-self: center;
   padding:
-    clamp(122px, 1.2308vw + 112.7692px, 130px)   
+    clamp(122px, 1.2308vw + 112.7692px, 130px)
     clamp(16px, 16.3846vw - 106.8846px, 122.5px);
   border: 2px solid currentColor;
   background: #fff;
   font-family: var(--accent-font, sans-serif);
-  margin: 100px 0;
+  margin: 100px auto;
 }
 
 .header__title {
@@ -84,7 +84,7 @@
 
 .shadow {
   opacity: 0.5;
-  text-shadow:     
+  text-shadow:
     -1px 0 var(--label-stroke-color),
     0 1px var(--label-stroke-color),
     1px 0 var(--label-stroke-color),
@@ -96,7 +96,6 @@
     -webkit-text-stroke: 1px var(--label-stroke-color);
   }
 }
-
 
 .card__image {
   width: 100%;
@@ -120,13 +119,18 @@
   cursor: pointer;
   color: inherit;
   justify-content: flex-end;
+  outline: none;
 }
 
 .like-icon {
-  width: 24px;
+  box-sizing: content-box;
+  width: 27px;
   height: 24px;
   fill: currentColor;
   flex-shrink: 0;
+  padding: 7px 5.5px;
+  border: 2px solid transparent;
+  transition: border-color 0.3s ease;
 }
 
 .button__text {
@@ -136,6 +140,26 @@
   white-space: nowrap;
   padding: 12.5px 37px;
   border: solid 2px currentColor;
+  transition: box-shadow 0.3s ease;
+  position: relative;
+  overflow: hidden;
+}
+
+.like-icon:focus,
+.like-icon:focus-visible,
+.button__text:focus,
+.button__text:focus-visible {
+  outline: none;
+  box-shadow: none;
+  border-color: transparent;
+}
+
+.card__like-button:focus-visible .like-icon {
+  border-color: currentColor;
+}
+
+.card__like-button:focus-visible .button__text {
+  box-shadow: 2px 2px 0 currentColor;
 }
 
 .save__button {
@@ -148,6 +172,16 @@
   gap: 8px;
   padding: 17px 20px;
   margin: 0 auto 100px;
+  position: relative;
+  overflow: hidden;
+}
+
+.save__button:focus {
+  outline: none;
+}
+
+.save__button:focus-visible {
+  box-shadow: 2px 2px 0 currentColor;
 }
 
 .save__button-text {
@@ -188,8 +222,36 @@
   font-family: var(--accent-font, sans-serif);
   text-transform: uppercase;
   background-color: #fff;
+  position: relative;
+  overflow: hidden;
 }
 
 .save__dialog[open]::backdrop {
   background-color: rgba(0, 0, 0, 0.75);
+}
+
+.save__dialog-button:focus {
+  outline: none;
+}
+
+.save__dialog-button:focus-visible {
+  box-shadow: 2px 2px 0 currentColor;
+}
+
+/* Hover-эффект: псевдоэлемент плавно появляется слева направо */
+.button__text::before,
+.save__button::before,
+.save__dialog-button::before {
+  content: "";
+  position: absolute;
+  inset: 0;
+  background: var(--button-hover-bg, #000);
+  transform: translateX(-100%);
+  transition: transform 0.5s ease-in-out;
+}
+
+.button__text:hover::before,
+.save__button:hover::before,
+.save__dialog-button:hover::before {
+  transform: translateX(0);
 }
