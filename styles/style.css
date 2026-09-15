@@ -58,7 +58,7 @@
 .card {
   background: #fff;
   display: grid;
-  border: solid 2px currentColor;
+  border: solid 2px #000;
   margin: 0 auto 50px;
 }
 
@@ -100,7 +100,7 @@
 .card__image {
   width: 100%;
   height: auto;
-  border: solid 2px 0 2px 0 currentColor;
+  border: solid 2px 0 2px 0 #000;
 }
 
 .card__text {
@@ -152,9 +152,10 @@
   line-height: 90%;
   white-space: nowrap;
   padding: 12.5px 37px;
-  border: solid 2px currentColor;
-  transition: box-shadow 0.3s ease;
+  border: solid 2px #000;
+  transition: box-shadow 0.3s ease, color 0.5s ease-in-out;
   position: relative;
+  z-index: 1;
   overflow: hidden;
 }
 
@@ -168,16 +169,16 @@
 }
 
 .card__like-button:focus-visible .like-icon {
-  border-color: currentColor;
+  border-color: #000;
 }
 
 .card__like-button:focus-visible .button__text {
-  box-shadow: 2px 2px 0 currentColor;
+  box-shadow: 2px 2px 0 #000;
 }
 
 .save__button {
   cursor: pointer;
-  border: solid 2px currentColor;
+  border: solid 2px #000;
   display: grid;
   grid-template-rows: 1fr 1fr;
   align-items: center;
@@ -186,7 +187,9 @@
   padding: 17px 20px;
   margin: 0 auto 100px;
   position: relative;
+  z-index: 1;
   overflow: hidden;
+  transition: color 0.5s ease-in-out;
 }
 
 .save__button:focus {
@@ -209,7 +212,7 @@
   padding: 30px;
   position: fixed;
   max-inline-size: 353px;
-  border: solid 2px currentColor;
+  border: solid 2px #000;
 }
 
 .save__dialog-message {
@@ -228,7 +231,7 @@
 
 .save__dialog-button {
   cursor: pointer;
-  border: solid 2px currentColor;
+  border: solid 2px #000;
   padding: 12.5px 0;
   width: 100%;
   font-size: 14px;
@@ -236,7 +239,9 @@
   text-transform: uppercase;
   background-color: #fff;
   position: relative;
+  z-index: 1;
   overflow: hidden;
+  transition: color 0.5s ease-in-out;
 }
 
 .save__dialog[open]::backdrop {
@@ -251,13 +256,13 @@
   box-shadow: 2px 2px 0 currentColor;
 }
 
-/* Hover-эффект: псевдоэлемент плавно появляется слева направо */
 .button__text::before,
 .save__button::before,
 .save__dialog-button::before {
   content: "";
   position: absolute;
   inset: 0;
+  z-index: -1;
   background: var(--button-hover-bg, #000);
   transform: translateX(-100%);
   transition: transform 0.5s ease-in-out;
@@ -267,4 +272,14 @@
 .save__button:hover::before,
 .save__dialog-button:hover::before {
   transform: translateX(0);
+}
+
+.button__text:hover,
+.save__button:hover,
+.save__dialog-button:hover {
+  color: var(--button-text-color, #fff);
+}
+
+.save__button svg rect {
+  fill: currentColor;
 }
