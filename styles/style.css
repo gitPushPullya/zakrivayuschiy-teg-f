@@ -11,37 +11,34 @@
 */
 
 .page {
+  min-height: 100vh;
+  font-family: var(--main-font, sans-serif);
+  background-image: var(--page-gradient);
+  background-size: cover;
+  background-attachment: fixed;
   min-inline-size: 320px;
   min-block-size: 100dvb;
-  font-family: var(--main-font, sans-serif);
   font-variation-settings: 'wght' var(--text-font-weight, 400);
-  background-image: var(--page-gradient);
-  background-attachment: fixed;
-  background-size: cover;
-  min-height: 100vh;
 }
 
 .content {
-  inline-size: var(--content-width);
   margin-inline: auto;
+  inline-size: var(--content-width);
 }
 
 .header {
   display: grid;
   justify-items: center;
-  align-self: center;
-  justify-self: center;
+  margin: 100px auto;
+  border: 2px solid currentColor;
   padding:
     clamp(122px, 1.2308vw + 112.7692px, 130px)
     clamp(16px, 16.3846vw - 106.8846px, 122.5px);
-  border: 2px solid currentColor;
-  background: var(--background-color);
   font-family: var(--accent-font, sans-serif);
-  margin: 100px auto;
+  background: var(--background-color);
 }
 
 .header__title {
-  justify-items: center;
   align-self: center;
   font-family: var(--accent-font, sans-serif);
   font-size: clamp(49px, 2.4615vw + 30.5385px, 65px);
@@ -56,10 +53,10 @@
 }
 
 .card {
-  background: var(--background-color);
   display: grid;
-  border: solid 2px var(--border-color);
   margin: 0 auto 50px;
+  border: solid 2px var(--border-color);
+  background: var(--background-color);
 }
 
 .card__title {
@@ -76,11 +73,11 @@
   position: absolute;
   top: 25px;
   right: 25px;
-  mix-blend-mode: hard-light;
-  font-family: var(--accent-font, sans-serif);
-  color: var(--card-text);
-  font-size: 14px;
   z-index: 1;
+  color: var(--card-text);
+  font-family: var(--accent-font, sans-serif);
+  font-size: 14px;
+  mix-blend-mode: hard-light;
 }
 
 .shadow {
@@ -126,8 +123,8 @@
 }
 
 .card__image[src="./images/third-sprint.png"]:hover {
-  transition: 3s ease;
   filter: invert(100%);
+  transition: 3s ease;
 }
 
 .card__image[src="./images/third-sprint-2.png"] {
@@ -159,27 +156,26 @@
   font-size: var(--card-font-size);
 }
 
-/* Переделать! */
 .card__like-button {
   display: inline-flex;
+  justify-content: flex-end;
   align-items: center;
   gap: 8px;
   margin: 25px 25px;
-  background: none;
   border: none;
-  cursor: pointer;
-  color: inherit;
-  justify-content: flex-end;
   outline: none;
+  color: inherit;
+  background: none;
+  cursor: pointer;
 }
 
 .like-icon {
+  flex-shrink: 0;
   box-sizing: content-box;
   width: 39px;
   height: 36px;
-  flex-shrink: 0;
-  padding: 7px 5.5px;
   border: 2px solid transparent;
+  padding: 7px 5.5px;
   transition: border-color 0.3s ease;
 }
 
@@ -199,8 +195,8 @@
 }
 
 .sparks {
-  fill: var(--animation-fill-color);
   opacity: 0;
+  fill: var(--animation-fill-color);
 }
 
 .like-icon:hover .core {
@@ -224,29 +220,29 @@
 }
 
 .button__text {
+  position: relative;
+  z-index: 1;
   display: flex;
-  align-items: center;
   justify-content: center;
-  font-size: var(--button-font-size);
-  font-family: var(--accent-font, sans-serif);
-  line-height: 90%;
-  white-space: nowrap;
+  align-items: center;
   min-width: 130px;
   min-height: 38px;
   border: solid 2px var(--border-color);
-  transition: box-shadow 0.3s ease, color 0.5s ease-in-out;
-  position: relative;
-  z-index: 1;
   overflow: hidden;
+  font-family: var(--accent-font, sans-serif);
+  font-size: var(--button-font-size);
+  line-height: 90%;
+  transition: box-shadow 0.3s ease, color 0.5s ease-in-out;
+  white-space: nowrap;
 }
 
 .like-icon:focus,
 .like-icon:focus-visible,
 .button__text:focus,
 .button__text:focus-visible {
-  outline: none;
-  box-shadow: none;
   border-color: transparent;
+  box-shadow: none;
+  outline: none;
 }
 
 .card__like-button:focus-visible .like-icon {
@@ -258,18 +254,18 @@
 }
 
 .save__button {
-  cursor: pointer;
-  border: solid 2px var(--border-color);
-  display: flex;
-  align-items: center;
-  justify-content: center;
-  gap: 8px;
-  padding: 17px 20px;
-  margin: 0 auto 100px;
   position: relative;
   z-index: 1;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  gap: 8px;
+  margin: 0 auto 100px;
+  border: solid 2px var(--border-color);
+  padding: 17px 20px;
   overflow: hidden;
   transition: color 0.5s ease-in-out;
+  cursor: pointer;
 }
 
 .save__button:focus {
@@ -281,18 +277,18 @@
 }
 
 .save__button-text {
-  font-size: var(--button-font-size);
   font-family: var(--accent-font, sans-serif);
+  font-size: var(--button-font-size);
   line-height: 90%;
 }
 
 .save__dialog[open] {
+  position: fixed;
   display: grid;
   gap: 30px;
-  padding: 30px;
-  position: fixed;
-  max-inline-size: 353px;
   border: solid 2px var(--border-color);
+  padding: 30px;
+  max-inline-size: 353px;
 }
 
 .save__dialog-message {
@@ -303,25 +299,25 @@
 }
 
 .save__dialog-text {
-  font-size: var(--button-font-size);
-  font-family: var(--accent-font, sans-serif);
-  text-align: left;
   max-width: 234px;
+  font-family: var(--accent-font, sans-serif);
+  font-size: var(--button-font-size);
+  text-align: left;
 }
 
 .save__dialog-button {
-  cursor: pointer;
-  border: solid 2px var(--border-color);
-  padding: 12.5px 0;
-  width: 100%;
-  font-size: var(--button-font-size);
-  font-family: var(--accent-font, sans-serif);
-  text-transform: uppercase;
-  background-color: var(--background-color);
   position: relative;
   z-index: 1;
+  width: 100%;
+  border: solid 2px var(--border-color);
+  padding: 12.5px 0;
   overflow: hidden;
+  font-family: var(--accent-font, sans-serif);
+  font-size: var(--button-font-size);
+  text-transform: uppercase;
+  background-color: var(--background-color);
   transition: color 0.5s ease-in-out;
+  cursor: pointer;
 }
 
 .save__dialog[open]::backdrop {
@@ -344,8 +340,8 @@
   inset: 0;
   z-index: -1;
   background: var(--button-hover-bg);
-  transform: translateX(-100%);
   transition: transform 0.5s ease-in-out;
+  transform: translateX(-100%);
 }
 
 .button__text:hover::before,
