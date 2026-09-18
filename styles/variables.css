@@ -1,12 +1,12 @@
 /* В этом файле будут храниться все значения переменных в исходном состоянии, а так же их изменения в зависимости от ширины устройства */
 :root {
 
-  --label-stroke-color: rgba(255, 255, 255, 0.5);
-  --content-width: clamp(375px, 50vw, 1440px);
+  --label-stroke-color: #fff;
+  --content-width: clamp(375px, 50vw, 700px);
   --main-font: 'Inter-Variable', sans-serif;
   --text-font-weight: 410;
   --title-font-weight: 715;
-  --accent-font: 'Press Start 2P', sans-serif;
+  --accent-font: 'Press Start 2P', fantasy;
   --button-text-color: #fff;
   --button-hover-bg: #000;
   --page-gradient:
