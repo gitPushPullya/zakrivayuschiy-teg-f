@@ -1,4 +1,4 @@
-https://gitpushpullya.github.io/zakrivayuschiy-teg-f/
+https://github.com/gitPushPullya/zakrivayuschiy-teg-f
 
 # Закрывающий тег
 
