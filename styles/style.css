@@ -35,7 +35,7 @@
     clamp(122px, 1.2308vw + 112.7692px, 130px)
     clamp(16px, 16.3846vw - 106.8846px, 122.5px);
   border: 2px solid currentColor;
-  background: #fff;
+  background: var(--background-color);
   font-family: var(--accent-font, sans-serif);
   margin: 100px auto;
 }
@@ -56,15 +56,15 @@
 }
 
 .card {
-  background: #fff;
+  background: var(--background-color);
   display: grid;
-  border: solid 2px #000;
+  border: solid 2px var(--border-color);
   margin: 0 auto 50px;
 }
 
 .card__title {
   padding: 4px 10px;
-  font-size: 18px;
+  font-size: var(--card-font-size);
 }
 
 .wrapper {
@@ -78,8 +78,9 @@
   right: 25px;
   mix-blend-mode: hard-light;
   font-family: var(--accent-font, sans-serif);
-  color: #000;
+  color: var(--card-text);
   font-size: 14px;
+  z-index: 1;
 }
 
 .shadow {
@@ -100,12 +101,62 @@
 .card__image {
   width: 100%;
   height: auto;
-  border: solid 2px 0 2px 0 #000;
+  border-top: 2px solid var(--border-color);
+  border-bottom: 2px solid var(--border-color);
+}
+
+.card__image[src="./images/zero-sprint.png"] {
+  filter: contrast(120%);
+}
+
+.card__image[src="./images/first-sprint.png"] {
+  filter: blur(2px);
+}
+
+.card__image[src="./images/first-sprint-2.png"] {
+  filter: saturate(200%);
+}
+
+.card__image[src="./images/second-sprint.png"] {
+  filter: sepia(100%);
+}
+
+.card__image[src="./images/second-sprint-2.png"] {
+  filter: hue-rotate(270deg);
+}
+
+.card__image[src="./images/third-sprint.png"]:hover {
+  transition: 3s ease;
+  filter: invert(100%);
+}
+
+.card__image[src="./images/third-sprint-2.png"] {
+  transition: 3s ease;
+}
+
+.wrapper:hover .card__image[src="./images/third-sprint-2.png"] {
+  filter: opacity(0%);
+}
+
+.card__image[src="./images/third-sprint-2-opacity.png"] {
+  position: absolute;
+  top: 0;
+  left: 0;
+  opacity: 0;
+  transition: opacity 3s ease;
+}
+
+.wrapper:hover .card__image[src="./images/third-sprint-2-opacity.png"] {
+  opacity: 1;
+}
+
+.card__image[src="./images/last-sprint.png"] {
+  filter: brightness(120%);
 }
 
 .card__text {
   margin: 25px 25px 0;
-  font-size: 18px;
+  font-size: var(--card-font-size);
 }
 
 /* Переделать! */
@@ -134,11 +185,17 @@
 
 .contour {
   fill: var(--contour-fill);
+  transition: fill 0.1s linear;
 }
 
-.main-body, 
+.main-body {
+  fill: transparent;
+  transition: fill 0.3s linear;
+}
+
 .core {
   fill: transparent;
+  transition: fill 0.3s linear 0.03s;
 }
 
 .sparks {
@@ -146,13 +203,37 @@
   opacity: 0;
 }
 
+.like-icon:hover .core {
+  fill: var(--contour-fill);
+  transition: fill 0.3s linear;
+}
+
+.like-icon:hover .main-body {
+  fill: var(--contour-fill);
+  transition: fill 0.3s linear 0.05s;
+}
+
+.like-icon:active .core {
+  fill: var(--animation-fill-color);
+  transition: fill 0.3s linear;
+}
+
+.like-icon:active .main-body {
+  fill: var(--animation-fill-color);
+  transition: fill 0.3s linear 0.05s;
+}
+
 .button__text {
-  font-size: 14px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-size: var(--button-font-size);
   font-family: var(--accent-font, sans-serif);
   line-height: 90%;
   white-space: nowrap;
-  padding: 12.5px 37px;
-  border: solid 2px #000;
+  min-width: 130px;
+  min-height: 38px;
+  border: solid 2px var(--border-color);
   transition: box-shadow 0.3s ease, color 0.5s ease-in-out;
   position: relative;
   z-index: 1;
@@ -169,20 +250,19 @@
 }
 
 .card__like-button:focus-visible .like-icon {
-  border-color: #000;
+  border-color: var(--border-color);
 }
 
 .card__like-button:focus-visible .button__text {
-  box-shadow: 2px 2px 0 #000;
+  box-shadow: 2px 2px 0 var(--shadow-color);
 }
 
 .save__button {
   cursor: pointer;
-  border: solid 2px #000;
-  display: grid;
-  grid-template-rows: 1fr 1fr;
+  border: solid 2px var(--border-color);
+  display: flex;
   align-items: center;
-  justify-items: center;
+  justify-content: center;
   gap: 8px;
   padding: 17px 20px;
   margin: 0 auto 100px;
@@ -201,7 +281,7 @@
 }
 
 .save__button-text {
-  font-size: 14px;
+  font-size: var(--button-font-size);
   font-family: var(--accent-font, sans-serif);
   line-height: 90%;
 }
@@ -212,7 +292,7 @@
   padding: 30px;
   position: fixed;
   max-inline-size: 353px;
-  border: solid 2px #000;
+  border: solid 2px var(--border-color);
 }
 
 .save__dialog-message {
@@ -223,7 +303,7 @@
 }
 
 .save__dialog-text {
-  font-size: 14px;
+  font-size: var(--button-font-size);
   font-family: var(--accent-font, sans-serif);
   text-align: left;
   max-width: 234px;
@@ -231,13 +311,13 @@
 
 .save__dialog-button {
   cursor: pointer;
-  border: solid 2px #000;
+  border: solid 2px var(--border-color);
   padding: 12.5px 0;
   width: 100%;
-  font-size: 14px;
+  font-size: var(--button-font-size);
   font-family: var(--accent-font, sans-serif);
   text-transform: uppercase;
-  background-color: #fff;
+  background-color: var(--background-color);
   position: relative;
   z-index: 1;
   overflow: hidden;
@@ -245,7 +325,7 @@
 }
 
 .save__dialog[open]::backdrop {
-  background-color: rgba(0, 0, 0, 0.75);
+  background-color: var(--backdrop-color);
 }
 
 .save__dialog-button:focus {
@@ -263,7 +343,7 @@
   position: absolute;
   inset: 0;
   z-index: -1;
-  background: var(--button-hover-bg, #000);
+  background: var(--button-hover-bg);
   transform: translateX(-100%);
   transition: transform 0.5s ease-in-out;
 }
@@ -277,9 +357,15 @@
 .button__text:hover,
 .save__button:hover,
 .save__dialog-button:hover {
-  color: var(--button-text-color, #fff);
+  color: var(--button-text-color);
 }
 
 .save__button svg rect {
   fill: currentColor;
+}
+
+@media (width <= 375px) {
+  .save__button {
+    flex-direction: column;
+  }
 }

@@ -25,6 +25,13 @@
       #e7e7e7 0.01%,
       #1a1a1a 100%
     );
-    --contour-fill: #000;
-    --animation-fill-color: #FF0000;
+  --contour-fill: #000;
+  --animation-fill-color: #FF0000;
+  --background-color: #fff;
+  --card-text: #000;
+  --border-color: #000;
+  --shadow-color: #000;
+  --backdrop-color: rgba(0, 0, 0, 0.75);
+  --button-font-size: 14px;
+  --card-font-size: 18px;
 }
