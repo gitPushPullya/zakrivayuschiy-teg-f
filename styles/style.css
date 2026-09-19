@@ -179,7 +179,7 @@
   padding: 0;
   outline: none;
   color: inherit;
-  background: none;
+  background-color: var(--background-color);
   cursor: pointer;
 }
 
@@ -250,6 +250,7 @@
   line-height: 90%;
   transition: box-shadow 0.3s ease;
   cursor: pointer;
+  background-color: var(--background-color);
 }
 
 .button:focus {
@@ -257,7 +258,7 @@
 }
 
 .button:focus-visible {
-  box-shadow: 2px 2px 0 currentColor;
+  box-shadow: 2px 2px 0 var(--shadow-color);
 }
 
 .button__text-style {
@@ -277,18 +278,6 @@
 
 .card__icon-button:focus-visible .like-icon {
   border-color: var(--border-color);
-}
-
-.card__like-button:focus,
-.save__button:focus,
-.save__dialog-button:focus {
-  outline: none;
-}
-
-.card__like-button:focus-visible,
-.save__button:focus-visible,
-.save__dialog-button:focus-visible {
-  box-shadow: 2px 2px 0 var(--shadow-color);
 }
 
 .save__button {
@@ -325,7 +314,6 @@
 .save__dialog-button {
   width: 100%;
   padding: 12.5px 0;
-  background-color: var(--background-color);
 }
 
 .save__dialog[open]::backdrop {
