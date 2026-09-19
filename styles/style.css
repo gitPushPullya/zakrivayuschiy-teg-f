@@ -13,10 +13,10 @@
 .page {
   min-height: 100vh;
   font-family: var(--main-font, sans-serif);
+  background-color: var(--background-color);
   background-image: var(--page-gradient);
   background-size: cover;
   background-attachment: fixed;
-  background-color: var(--background-color);
   min-inline-size: 320px;
   min-block-size: 100dvb;
   font-variation-settings: 'wght' var(--text-font-weight, 410);
@@ -95,8 +95,8 @@
 
 @supports (-webkit-text-stroke: 1px var(--label-stroke-color)) {
   .shadow {
-    -webkit-text-stroke: 1px var(--label-stroke-color);
     text-shadow: none;
+    -webkit-text-stroke: 1px var(--label-stroke-color);
   }
 }
 
@@ -176,21 +176,16 @@
   justify-content: center;
   align-items: center;
   border: none;
-  outline: none;
   padding: 0;
+  outline: none;
   color: inherit;
   background: none;
   cursor: pointer;
 }
 
 .card__like-button {
-  display: inline-flex;
-  border: none;
-  outline: none;
   padding: 0;
-  color: inherit;
   background: none;
-  cursor: pointer;
 }
 
 .like-icon {
@@ -249,10 +244,10 @@
   align-items: center;
   border: solid 2px var(--border-color);
   overflow: hidden;
+  color: var(--button-text-color);
   font-family: var(--accent-font, sans-serif);
   font-size: var(--button-font-size);
   line-height: 90%;
-  color: var(--button-text-color);
   transition: box-shadow 0.3s ease;
   cursor: pointer;
 }
@@ -280,18 +275,19 @@
   white-space: nowrap;
 }
 
-.no-focus:focus,
-.no-focus:focus-visible {
-  border-color: transparent;
-  box-shadow: none;
-  outline: none;
-}
-
 .card__icon-button:focus-visible .like-icon {
   border-color: var(--border-color);
 }
 
-.card__like-button:focus-visible .button {
+.card__like-button:focus,
+.save__button:focus,
+.save__dialog-button:focus {
+  outline: none;
+}
+
+.card__like-button:focus-visible,
+.save__button:focus-visible,
+.save__dialog-button:focus-visible {
   box-shadow: 2px 2px 0 var(--shadow-color);
 }
 
@@ -321,9 +317,9 @@
   max-width: 234px;
   font-family: var(--accent-font, sans-serif);
   font-size: var(--button-font-size);
+  line-height: 150%;
   text-align: left;
   text-transform: uppercase;
-  line-height: 150%;
 }
 
 .save__dialog-button {
@@ -352,6 +348,7 @@
 .save__button svg {
   position: relative;
   z-index: 1;
+  mix-blend-mode: difference;
 }
 
 @media (width <= 375px) {
